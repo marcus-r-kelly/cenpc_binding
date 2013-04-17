@@ -15,14 +15,14 @@ function theta = compute_fxn_21 (model,C,A)
 %
 %
 
-if ( isfield(model,kccm)    && %
-     isfield(model,kcr)     && %
-     isfield(model,kmr)     && %
-     isfield(model,krm)     && %
-     isfield(model,km2)     && %
-     isfield(model,kr2) )
+if ( isfield(model,"kccm")    && %
+     isfield(model,"kcr")     && %
+     isfield(model,"kmr")     && %
+     isfield(model,"krm")     && %
+     isfield(model,"km2")     && %
+     isfield(model,"kr2") )
 
-    top= ( 1/model.kccm * (1 + C./model.kmr * 0.5 + C./model.km2 ) + 1/model.kcr ( 1 + C./model.kmr *0.5 + C./model.km2)) ; 
+    top= ( 1/model.kccm * (1 + C./model.kmr * 0.5 + C./model.km2 ) + 1/model.kcr * ( 1 + C./model.kmr *0.5 + C./model.km2)) ; 
     bottom = 1./A + top ;
     theta=top./bottom ; 
 

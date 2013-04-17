@@ -1,4 +1,4 @@
-function theta = compute_fxn_21 (model,C,A)
+function theta = compute_fxn_11 (model,C,A)
 %
 % theta= compute_fxn(model,C,A) ;
 %
@@ -15,19 +15,21 @@ function theta = compute_fxn_21 (model,C,A)
 %
 %
 
-    if (isfield(model,kccm) &&
-        isfield(model,kccm) &&
-        isfield(model,krb) &&
-        isfield(model,kmb) ) 
+    if (isfield(model,"kccm") &&
+        isfield(model,"kcr") &&
+        isfield(model,"kmr") &&
+        isfield(model,"krm") ) 
 
-    top= 1/model.kccm + 1/model.kcr + C .* ( 0.5 / ( model.krb * model.kccr )  + 0.5 / ( model.kmb * model.kccm ) ); 
+    top= A * ( 1/model.kccm + 1/model.kcr +  0.5 / ( model.krm * model.kcr )  + 0.5 / ( model.kmr * model.kccm )); 
+    top' 
 
-    bottom= 1./A + top ; 
+    bottom= 1 + top ; 
+    bottom'
 
     theta=top./bottom
 
     else
-        error(1,'Not all necessary parameters are supplied by the input model') ;
+        error('Not all necessary parameters are supplied by the input model') ;
     end
 
 end
