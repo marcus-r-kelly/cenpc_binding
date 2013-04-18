@@ -26,7 +26,7 @@
 %   general_two_to_one.kr2  =
 
 cooperativity_fudge=10^3 ; 
-nobinding_fudge=10^6 ; 
+nobinding_fudge=10^12 ; 
 lit_kccm=1.4  ;
 lit_kcr=0.6 ; 
 
@@ -58,10 +58,10 @@ heterocoop21.description = 'Domains promote the binding of the other type of dom
 
 homocoop21.kccm = lit_kccm ; 
 homocoop21.kcr = lit_kcr ;
-homocoop21.krm  = homocoop21.kccm / cooperativity_fudge ;
-homocoop21.kmr  = homocoop21.kcr / cooperativity_fudge ; 
-homocoop21.km2  = homocoop21.kccm ; 
-homocoop21.kr2  = homocoop21.kcr ; 
+homocoop21.krm  = homocoop21.kccm ;
+homocoop21.kmr  = homocoop21.kcr ; 
+homocoop21.km2  = homocoop21.kccm / cooperativity_fudge ; 
+homocoop21.kr2  = homocoop21.kcr / cooperativity_fudge ; 
 homocoop21.description = 'Domains promote the binding of the same type of domain' ; 
 
 %R532A -- central region KD is nobinding_fudge
@@ -92,9 +92,9 @@ heterocoop21_R532A.description = 'Domains promote the binding of the other type 
 
 homocoop21_R532A.kccm = lit_kccm ; 
 homocoop21_R532A.kcr = nobinding_fudge ;
-homocoop21_R532A.krm  = homocoop21_R532A.kccm / cooperativity_fudge ;
+homocoop21_R532A.krm  = homocoop21_R532A.kccm ;
 homocoop21_R532A.kmr  = nobinding_fudge ; 
-homocoop21_R532A.km2  = homocoop21_R532A.kccm ; 
+homocoop21_R532A.km2  = homocoop21_R532A.kccm / cooperativity_fudge ; 
 homocoop21_R532A.kr2  = nobinding_fudge ; 
 homocoop21_R532A.description = 'Domains promote the binding of the same type of domain' ; 
 
@@ -102,15 +102,15 @@ homocoop21_R532A.description = 'Domains promote the binding of the same type of 
 %R742A -- CCM KD is nobinding_fudge
 
 anticoop21_R742A.kccm = nobinding_fudge ; 
-anticoop21_R742A.kcr = lit_kcr ;
+anticoop21_R742A.kcr  = lit_kcr ;
 anticoop21_R742A.krm  = nobinding_fudge ;
-anticoop21_R742A.kmr  = anticoop21_R742A.kcr*10^3 ; 
+anticoop21_R742A.kmr  = anticoop21_R742A.kcr * cooperativity_fudge ; 
 anticoop21_R742A.km2  = nobinding_fudge ; 
 anticoop21_R742A.kr2  = anticoop21_R742A.kcr ; 
 anticoop21_R742A.description = 'Once bound, Cenp-C prefers to engage Cenp-A with the same type of domain.' ; 
 
 uncoop21_R742A.kccm = nobinding_fudge ; 
-uncoop21_R742A.kcr = lit_kcr ;
+uncoop21_R742A.kcr  = lit_kcr ;
 uncoop21_R742A.krm  = nobinding_fudge ;
 uncoop21_R742A.kmr  = uncoop21_R742A.kcr ; 
 uncoop21_R742A.km2  = nobinding_fudge ; 
@@ -126,11 +126,11 @@ heterocoop21_R742A.kr2  = heterocoop21_R742A.kcr ;
 heterocoop21_R742A.description = 'Domains promote the binding of the other type of domain' ; 
 
 homocoop21_R742A.kccm = nobinding_fudge ; 
-homocoop21_R742A.kcr = lit_kcr ;
-homocoop21_R742A.krm  = homocoop21_R742A.kccm / cooperativity_fudge ;
-homocoop21_R742A.kmr  = nobinding_fudge ; 
-homocoop21_R742A.km2  = homocoop21_R742A.kccm ; 
-homocoop21_R742A.kr2  = nobinding_fudge ; 
+homocoop21_R742A.kcr  = lit_kcr ;
+homocoop21_R742A.krm  = nobinding_fudge ;
+homocoop21_R742A.kmr  = homocoop21_R742A.kcr ; 
+homocoop21_R742A.km2  = nobinding_fudge ; 
+homocoop21_R742A.kr2  = homocoop21_R742A.kcr / cooperativity_fudge ; 
 homocoop21_R742A.description = 'Domains promote the binding of the same type of domain' ; 
 
 % One-to-one models

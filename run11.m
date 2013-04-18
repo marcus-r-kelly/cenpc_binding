@@ -1,9 +1,9 @@
 models ; 
-M=-4:0.5:4 ;
-A=6 ; 
-C=10.^M ; 
+M=-5:0.05:5 ;
+A=10.^M ; 
+C=6 ; 
 
-for i=1:length(C)  
-   theta_general(i) = fxn_11_v1(general11,C(i),A) ; 
+for i=1:length(A)  
+   theta_general(i) = fxn_11_v1(general11,C,A(i)) ; 
 end
 
